@@ -1,6 +1,7 @@
-#' Tidy Randomly Generated Uniform Tibble
+#' Tidy Randomly Generated Uniform Distribution Tibble
 #'
-#' @family Data Generator
+#' @family Continuous Distribution
+#' @family Uniform
 #'
 #' @author Steven P. Sanderson II, MPH
 #'
@@ -34,71 +35,86 @@
 #'
 #' @examples
 #' tidy_uniform()
-#'
 #' @return
 #' A tibble of randomly generated data.
 #'
 #' @export
 #'
 
-tidy_uniform <- function(.n = 50, .min = 0, .max = 1, .num_sims = 1){
+tidy_uniform <- function(.n = 50, .min = 0, .max = 1, .num_sims = 1) {
 
-    # Tidyeval ----
-    n        <- as.integer(.n)
-    num_sims <- as.integer(.num_sims)
-    max_val <- as.numeric(.max)
-    min_val <- as.numeric(.min)
+  # Tidyeval ----
+  n <- as.integer(.n)
+  num_sims <- as.integer(.num_sims)
+  max_val <- as.numeric(.max)
+  min_val <- as.numeric(.min)
 
-    # Checks ----
-    if(!is.integer(n) | n < 0){
-        rlang::abort(
-            "The parameters '.n' must be of class integer. Please pass a whole
+  # Checks ----
+  if (!is.integer(n) | n < 0) {
+    rlang::abort(
+      "The parameters '.n' must be of class integer. Please pass a whole
             number like 50 or 100. It must be greater than 0."
-        )
-    }
+    )
+  }
 
-    if(!is.integer(num_sims) | num_sims < 0){
-        rlang::abort(
-            "The parameter `.num_sims' must be of class integer. Please pass a
+  if (!is.integer(num_sims) | num_sims < 0) {
+    rlang::abort(
+      "The parameter `.num_sims' must be of class integer. Please pass a
             whole number like 50 or 100. It must be greater than 0."
-        )
-    }
+    )
+  }
 
-    if(!is.numeric(min_val) | !is.numeric(max_val) | min_val > max_val){
-        rlang::abort(
-            "The parameters of .min and .max should be numeric and max must be
+  if (!is.numeric(min_val) | !is.numeric(max_val) | min_val > max_val) {
+    rlang::abort(
+      "The parameters of .min and .max should be numeric and max must be
             greater than or equal to min."
-        )
-    }
+    )
+  }
 
-    x <- seq(1, num_sims, 1)
+  x <- seq(1, num_sims, 1)
 
-    ps <- seq(-n, n-1, 2)
-    qs <- seq(0, 1, (1/(n-1)))
+  # ps <- seq(-n, n - 1, 2)
+  qs <- seq(0, 1, (1 / (n - 1)))
+  ps <- qs
 
-    df <- dplyr::tibble(sim_number = as.factor(x)) %>%
-        dplyr::group_by(sim_number) %>%
-        dplyr::mutate(x = list(1:n)) %>%
-        dplyr::mutate(y = list(stats::runif(n = n, min = min_val, max = max_val))) %>%
-        dplyr::mutate(d = list(density(unlist(y), n = n)[c("x","y")] %>%
-                                   purrr::set_names("dx","dy") %>%
-                                   dplyr::as_tibble())) %>%
-        dplyr::mutate(p = list(stats::punif(ps,  min = min_val, max = max_val))) %>%
-        dplyr::mutate(q = list(stats::qunif(qs,  min = min_val, max = max_val))) %>%
-        tidyr::unnest(cols = c(x, y, d, p, q)) %>%
-        dplyr::ungroup()
+  df <- dplyr::tibble(sim_number = as.factor(x)) %>%
+    dplyr::group_by(sim_number) %>%
+    dplyr::mutate(x = list(1:n)) %>%
+    dplyr::mutate(y = list(stats::runif(n = n, min = min_val, max = max_val))) %>%
+    dplyr::mutate(d = list(density(unlist(y), n = n)[c("x", "y")] %>%
+      purrr::set_names("dx", "dy") %>%
+      dplyr::as_tibble())) %>%
+    dplyr::mutate(p = list(stats::punif(ps, min = min_val, max = max_val))) %>%
+    dplyr::mutate(q = list(stats::qunif(qs, min = min_val, max = max_val))) %>%
+    tidyr::unnest(cols = c(x, y, d, p, q)) %>%
+    dplyr::ungroup()
 
+  param_grid <- dplyr::tibble(.max, .min)
 
-    # Attach descriptive attributes to tibble
-    attr(df, ".max") <- .max
-    attr(df, ".min") <- .min
-    attr(df, ".n") <- .n
-    attr(df, ".num_sims") <- .num_sims
-    attr(df, "tibble_type") <- "tidy_uniform"
-    attr(df, "ps") <- ps
-    attr(df, "qs") <- qs
+  # Attach descriptive attributes to tibble
+  attr(df, ".max") <- .max
+  attr(df, ".min") <- .min
+  attr(df, ".n") <- .n
+  attr(df, ".num_sims") <- .num_sims
+  attr(df, "tibble_type") <- "tidy_uniform"
+  attr(df, "ps") <- ps
+  attr(df, "qs") <- qs
+  attr(df, "param_grid") <- param_grid
+  attr(df, "param_grid_txt") <- paste0(
+    "c(",
+    paste(param_grid[, names(param_grid)], collapse = ", "),
+    ")"
+  )
+  attr(df, "dist_with_params") <- paste0(
+    "Uniform",
+    " ",
+    paste0(
+      "c(",
+      paste(param_grid[, names(param_grid)], collapse = ", "),
+      ")"
+    )
+  )
 
-    # Return final result as function output
-    return(df)
-
+  # Return final result as function output
+  return(df)
 }

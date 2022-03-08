@@ -2,7 +2,7 @@
 % Please edit documentation in R/random-tidy-weibull.R
 \name{tidy_weibull}
 \alias{tidy_weibull}
-\title{Tidy Randomly Generated Weibull Tibble}
+\title{Tidy Randomly Generated Weibull Distribution Tibble}
 \usage{
 tidy_weibull(.n = 50, .shape = 1, .scale = 1, .num_sims = 1)
 }
@@ -39,31 +39,46 @@ The columns that are output are:
 }
 }
 \details{
-This function uses the underlying \code{stats::rlnorm()}, and its underlying
-\code{p}, \code{d}, and \code{q} functions. For more information please see \code{\link[stats:Lognormal]{stats::rlnorm()}}
+This function uses the underlying \code{stats::rweibull()}, and its underlying
+\code{p}, \code{d}, and \code{q} functions. For more information please see \code{\link[stats:Weibull]{stats::rweibull()}}
 }
 \examples{
 tidy_weibull()
-
 }
 \seealso{
 \url{https://www.itl.nist.gov/div898/handbook/eda/section3/eda3669.htm}
 
-Other Data Generator: 
+Other Continuous Distribution: 
 \code{\link{tidy_beta}()},
+\code{\link{tidy_burr}()},
 \code{\link{tidy_cauchy}()},
 \code{\link{tidy_chisquare}()},
 \code{\link{tidy_exponential}()},
 \code{\link{tidy_f}()},
 \code{\link{tidy_gamma}()},
-\code{\link{tidy_hypergeometric}()},
+\code{\link{tidy_generalized_beta}()},
+\code{\link{tidy_generalized_pareto}()},
+\code{\link{tidy_geometric}()},
+\code{\link{tidy_inverse_burr}()},
+\code{\link{tidy_inverse_exponential}()},
+\code{\link{tidy_inverse_gamma}()},
+\code{\link{tidy_inverse_normal}()},
+\code{\link{tidy_inverse_pareto}()},
+\code{\link{tidy_inverse_weibull}()},
 \code{\link{tidy_logistic}()},
 \code{\link{tidy_lognormal}()},
 \code{\link{tidy_normal}()},
-\code{\link{tidy_poisson}()},
-\code{\link{tidy_uniform}()}
+\code{\link{tidy_paralogistic}()},
+\code{\link{tidy_pareto1}()},
+\code{\link{tidy_pareto}()},
+\code{\link{tidy_uniform}()},
+\code{\link{tidy_zero_truncated_geometric}()}
+
+Other Weibull: 
+\code{\link{tidy_inverse_weibull}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Data Generator}
+\concept{Continuous Distribution}
+\concept{Weibull}

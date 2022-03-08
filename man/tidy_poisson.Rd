@@ -2,7 +2,7 @@
 % Please edit documentation in R/random-tidy-poisson.R
 \name{tidy_poisson}
 \alias{tidy_poisson}
-\title{Tidy Randomly Generated Poisson Tibble}
+\title{Tidy Randomly Generated Poisson Distribution Tibble}
 \usage{
 tidy_poisson(.n = 50, .lambda = 1, .num_sims = 1)
 }
@@ -42,28 +42,26 @@ This function uses the underlying \code{stats::rpois()}, and its underlying
 }
 \examples{
 tidy_poisson()
-
 }
 \seealso{
 \url{https://r-coder.com/poisson-distribution-r/}
 
 \url{https://en.wikipedia.org/wiki/Poisson_distribution}
 
-Other Data Generator: 
-\code{\link{tidy_beta}()},
-\code{\link{tidy_cauchy}()},
-\code{\link{tidy_chisquare}()},
-\code{\link{tidy_exponential}()},
-\code{\link{tidy_f}()},
-\code{\link{tidy_gamma}()},
+Other Poisson: 
+\code{\link{tidy_zero_truncated_poisson}()},
+\code{\link{util_poisson_param_estimate}()}
+
+Other Discrete Distribution: 
+\code{\link{tidy_binomial}()},
 \code{\link{tidy_hypergeometric}()},
-\code{\link{tidy_logistic}()},
-\code{\link{tidy_lognormal}()},
-\code{\link{tidy_normal}()},
-\code{\link{tidy_uniform}()},
-\code{\link{tidy_weibull}()}
+\code{\link{tidy_negative_binomial}()},
+\code{\link{tidy_zero_truncated_binomial}()},
+\code{\link{tidy_zero_truncated_negative_binomial}()},
+\code{\link{tidy_zero_truncated_poisson}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Data Generator}
+\concept{Discrete Distribution}
+\concept{Poisson}

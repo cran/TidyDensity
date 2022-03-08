@@ -4,21 +4,28 @@
 # TidyDensity <img src="man/figures/tidy_density_logo.png" width="147" height="170" align="right" />
 
 <!-- badges: start -->
-<!--[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/TidyDensity)](https://cran.r-project.org/package=TidyDensity) -->
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/TidyDensity)](https://cran.r-project.org/package=TidyDensity)
 ![](https://cranlogs.r-pkg.org/badges/TidyDensity)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/TidyDensity)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html##experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html##stable)
 [![PRs
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 <!-- badges: end -->
 
-The goal of TidyDensity is to …
+The goal of `{TidyDensity}` is to make working with random numbers from
+different distributions easy. All `tidy_` distribution functions provide
+the following components:
+
+-   \[`r_`\]
+-   \[`d_`\]
+-   \[`q_`\]
+-   \[`p_`\]
 
 ## Installation
 
-You can install the released version of TidyDensity from
+You can install the released version of `{TidyDensity}` from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
@@ -43,18 +50,18 @@ library(ggplot2)
 
 tidy_normal()
 #> # A tibble: 50 x 7
-#>    sim_number     x       y    dx       dy         p        q
-#>    <fct>      <int>   <dbl> <dbl>    <dbl>     <dbl>    <dbl>
-#>  1 1              1 -0.0424 -2.73 0.000280 0         -Inf    
-#>  2 1              2  0.520  -2.60 0.000906 0           -2.05 
-#>  3 1              3  0.748  -2.46 0.00249  0           -1.74 
-#>  4 1              4 -0.0237 -2.32 0.00580  0           -1.54 
-#>  5 1              5  0.228  -2.19 0.0116   0           -1.39 
-#>  6 1              6 -0.914  -2.05 0.0201   0           -1.27 
-#>  7 1              7  0.187  -1.91 0.0310   0           -1.16 
-#>  8 1              8  0.944  -1.78 0.0435   4.18e-284   -1.07 
-#>  9 1              9  0.250  -1.64 0.0570   1.11e-253   -0.981
-#> 10 1             10 -0.125  -1.50 0.0716   5.45e-225   -0.901
+#>    sim_number     x       y    dx       dy     p        q
+#>    <fct>      <int>   <dbl> <dbl>    <dbl> <dbl>    <dbl>
+#>  1 1              1  0.134  -2.87 0.000377 0.5   -Inf    
+#>  2 1              2  1.04   -2.75 0.00103  0.508   -2.05 
+#>  3 1              3  1.08   -2.63 0.00250  0.516   -1.74 
+#>  4 1              4  0.870  -2.50 0.00545  0.524   -1.54 
+#>  5 1              5 -0.786  -2.38 0.0107   0.533   -1.39 
+#>  6 1              6 -0.127  -2.26 0.0188   0.541   -1.27 
+#>  7 1              7 -0.314  -2.13 0.0300   0.549   -1.16 
+#>  8 1              8 -1.04   -2.01 0.0436   0.557   -1.07 
+#>  9 1              9 -0.794  -1.89 0.0583   0.565   -0.981
+#> 10 1             10 -0.0162 -1.76 0.0729   0.573   -0.901
 #> # ... with 40 more rows
 ```
 

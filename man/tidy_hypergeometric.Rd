@@ -2,7 +2,7 @@
 % Please edit documentation in R/random-tidy-hypergeometric.R
 \name{tidy_hypergeometric}
 \alias{tidy_hypergeometric}
-\title{Tidy Randomly Generated Hypergeometric Tibble}
+\title{Tidy Randomly Generated Hypergeometric Distribution Tibble}
 \usage{
 tidy_hypergeometric(.n = 50, .m = 0, .nn = 0, .k = 0, .num_sims = 1)
 }
@@ -46,26 +46,23 @@ This function uses the underlying \code{stats::rhyper()}, and its underlying
 }
 \examples{
 tidy_hypergeometric()
-
 }
 \seealso{
 \url{https://en.wikipedia.org/wiki/Hypergeometric_distribution}
 
-Other Data Generator: 
-\code{\link{tidy_beta}()},
-\code{\link{tidy_cauchy}()},
-\code{\link{tidy_chisquare}()},
-\code{\link{tidy_exponential}()},
-\code{\link{tidy_f}()},
-\code{\link{tidy_gamma}()},
-\code{\link{tidy_logistic}()},
-\code{\link{tidy_lognormal}()},
-\code{\link{tidy_normal}()},
+Other Discrete Distribution: 
+\code{\link{tidy_binomial}()},
+\code{\link{tidy_negative_binomial}()},
 \code{\link{tidy_poisson}()},
-\code{\link{tidy_uniform}()},
-\code{\link{tidy_weibull}()}
+\code{\link{tidy_zero_truncated_binomial}()},
+\code{\link{tidy_zero_truncated_negative_binomial}()},
+\code{\link{tidy_zero_truncated_poisson}()}
+
+Other Hypergeometric: 
+\code{\link{util_hypergeometric_param_estimate}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Data Generator}
+\concept{Discrete Distribution}
+\concept{Hypergeometric}

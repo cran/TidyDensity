@@ -2,7 +2,7 @@
 % Please edit documentation in R/random-tidy-gamma.R
 \name{tidy_gamma}
 \alias{tidy_gamma}
-\title{Tidy Randomly Generated Gamma Tibble}
+\title{Tidy Randomly Generated Gamma Distribution Tibble}
 \usage{
 tidy_gamma(.n = 50, .shape = 1, .rate = 1, .num_sims = 1)
 }
@@ -45,28 +45,44 @@ This function uses the underlying \code{stats::rgamma()}, and its underlying
 }
 \examples{
 tidy_gamma()
-
 }
 \seealso{
 \url{https://www.statology.org/fit-gamma-distribution-to-dataset-in-r/}
 
 \url{https://en.wikipedia.org/wiki/Gamma_distribution}
 
-Other Data Generator: 
+Other Continuous Distribution: 
 \code{\link{tidy_beta}()},
+\code{\link{tidy_burr}()},
 \code{\link{tidy_cauchy}()},
 \code{\link{tidy_chisquare}()},
 \code{\link{tidy_exponential}()},
 \code{\link{tidy_f}()},
-\code{\link{tidy_hypergeometric}()},
+\code{\link{tidy_generalized_beta}()},
+\code{\link{tidy_generalized_pareto}()},
+\code{\link{tidy_geometric}()},
+\code{\link{tidy_inverse_burr}()},
+\code{\link{tidy_inverse_exponential}()},
+\code{\link{tidy_inverse_gamma}()},
+\code{\link{tidy_inverse_normal}()},
+\code{\link{tidy_inverse_pareto}()},
+\code{\link{tidy_inverse_weibull}()},
 \code{\link{tidy_logistic}()},
 \code{\link{tidy_lognormal}()},
 \code{\link{tidy_normal}()},
-\code{\link{tidy_poisson}()},
+\code{\link{tidy_paralogistic}()},
+\code{\link{tidy_pareto1}()},
+\code{\link{tidy_pareto}()},
 \code{\link{tidy_uniform}()},
-\code{\link{tidy_weibull}()}
+\code{\link{tidy_weibull}()},
+\code{\link{tidy_zero_truncated_geometric}()}
+
+Other Gamma: 
+\code{\link{tidy_inverse_gamma}()},
+\code{\link{util_gamma_param_estimate}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Data Generator}
+\concept{Continuous Distribution}
+\concept{Gamma}

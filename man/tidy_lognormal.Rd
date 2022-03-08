@@ -2,7 +2,7 @@
 % Please edit documentation in R/random-tidy-lognormal.R
 \name{tidy_lognormal}
 \alias{tidy_lognormal}
-\title{Tidy Randomly Generated Lognormal Tibble}
+\title{Tidy Randomly Generated Lognormal Distribution Tibble}
 \usage{
 tidy_lognormal(.n = 50, .meanlog = 0, .sdlog = 1, .num_sims = 1)
 }
@@ -44,26 +44,41 @@ This function uses the underlying \code{stats::rlnorm()}, and its underlying
 }
 \examples{
 tidy_lognormal()
-
 }
 \seealso{
 \url{https://www.itl.nist.gov/div898/handbook/eda/section3/eda3669.htm}
 
-Other Data Generator: 
+Other Continuous Distribution: 
 \code{\link{tidy_beta}()},
+\code{\link{tidy_burr}()},
 \code{\link{tidy_cauchy}()},
 \code{\link{tidy_chisquare}()},
 \code{\link{tidy_exponential}()},
 \code{\link{tidy_f}()},
 \code{\link{tidy_gamma}()},
-\code{\link{tidy_hypergeometric}()},
+\code{\link{tidy_generalized_beta}()},
+\code{\link{tidy_generalized_pareto}()},
+\code{\link{tidy_geometric}()},
+\code{\link{tidy_inverse_burr}()},
+\code{\link{tidy_inverse_exponential}()},
+\code{\link{tidy_inverse_gamma}()},
+\code{\link{tidy_inverse_normal}()},
+\code{\link{tidy_inverse_pareto}()},
+\code{\link{tidy_inverse_weibull}()},
 \code{\link{tidy_logistic}()},
 \code{\link{tidy_normal}()},
-\code{\link{tidy_poisson}()},
+\code{\link{tidy_paralogistic}()},
+\code{\link{tidy_pareto1}()},
+\code{\link{tidy_pareto}()},
 \code{\link{tidy_uniform}()},
-\code{\link{tidy_weibull}()}
+\code{\link{tidy_weibull}()},
+\code{\link{tidy_zero_truncated_geometric}()}
+
+Other Lognormal: 
+\code{\link{util_lognormal_param_estimate}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Data Generator}
+\concept{Continuous Distribution}
+\concept{Lognormal}

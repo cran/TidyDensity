@@ -2,7 +2,7 @@
 % Please edit documentation in R/random-tidy-exponential.R
 \name{tidy_exponential}
 \alias{tidy_exponential}
-\title{Tidy Randomly Generated Exponential Tibble}
+\title{Tidy Randomly Generated Exponential Distribution Tibble}
 \usage{
 tidy_exponential(.n = 50, .rate = 1, .num_sims = 1)
 }
@@ -42,26 +42,42 @@ This function uses the underlying \code{stats::rexp()}, and its underlying
 }
 \examples{
 tidy_exponential()
-
 }
 \seealso{
 \url{https://www.itl.nist.gov/div898/handbook/eda/section3/eda3667.htm}
 
-Other Data Generator: 
+Other Continuous Distribution: 
 \code{\link{tidy_beta}()},
+\code{\link{tidy_burr}()},
 \code{\link{tidy_cauchy}()},
 \code{\link{tidy_chisquare}()},
 \code{\link{tidy_f}()},
 \code{\link{tidy_gamma}()},
-\code{\link{tidy_hypergeometric}()},
+\code{\link{tidy_generalized_beta}()},
+\code{\link{tidy_generalized_pareto}()},
+\code{\link{tidy_geometric}()},
+\code{\link{tidy_inverse_burr}()},
+\code{\link{tidy_inverse_exponential}()},
+\code{\link{tidy_inverse_gamma}()},
+\code{\link{tidy_inverse_normal}()},
+\code{\link{tidy_inverse_pareto}()},
+\code{\link{tidy_inverse_weibull}()},
 \code{\link{tidy_logistic}()},
 \code{\link{tidy_lognormal}()},
 \code{\link{tidy_normal}()},
-\code{\link{tidy_poisson}()},
+\code{\link{tidy_paralogistic}()},
+\code{\link{tidy_pareto1}()},
+\code{\link{tidy_pareto}()},
 \code{\link{tidy_uniform}()},
-\code{\link{tidy_weibull}()}
+\code{\link{tidy_weibull}()},
+\code{\link{tidy_zero_truncated_geometric}()}
+
+Other Exponential: 
+\code{\link{tidy_inverse_exponential}()},
+\code{\link{util_exponential_param_estimate}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Data Generator}
+\concept{Continuous Distribution}
+\concept{Exponential}

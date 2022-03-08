@@ -26,10 +26,22 @@
 #'
 #' @param .data The data that is going to be passed from a a `tidy_` distribution
 #' function.
+#' @param ... This is the grouping variable that gets passed to [dplyr::group_by()]
+#' and [dplyr::select()].
 #'
 #' @examples
+#' library(dplyr)
+#'
 #' tn <- tidy_normal(.num_sims = 5)
+#' tb <- tidy_beta(.num_sims = 5)
+#'
 #' tidy_distribution_summary_tbl(tn)
+#' tidy_distribution_summary_tbl(tn, sim_number)
+#'
+#' data_tbl <- tidy_combine_distributions(tn, tb)
+#'
+#' tidy_distribution_summary_tbl(data_tbl)
+#' tidy_distribution_summary_tbl(data_tbl, dist_type)
 #'
 #' @return
 #' A summary stats tibble
@@ -37,34 +49,33 @@
 #' @export
 #'
 
-tidy_distribution_summary_tbl <- function(.data){
+tidy_distribution_summary_tbl <- function(.data, ...) {
 
-    # Get the data attributes
-    atb <- attributes(.data)
+  # Get the data attributes
+  atb <- attributes(.data)
 
-    if(!"tibble_type" %in% names(atb)){
-        rlang::abort("The data passed must come from a `tidy_` distribution function.")
-    }
+  if (!"tibble_type" %in% names(atb)) {
+    rlang::abort("The data passed must come from a `tidy_` distribution function.")
+  }
 
-    data_tbl <- dplyr::as_tibble(.data)
+  data_tbl <- dplyr::as_tibble(.data)
 
-    summary_tbl <- data_tbl %>%
-        dplyr::group_by(sim_number) %>%
-        dplyr::select(sim_number, y) %>%
-        dplyr::summarise(
-            mean_val = mean(y, na.rm = TRUE),
-            median_val = stats::median(y, na.rm = TRUE),
-            std_val = sd(y, na.rm = TRUE),
-            min_val = min(y),
-            max_val = max(y),
-            # skewness = healthyR.ai::hai_skewness_vec(y),
-            # kurtosis = healthyR.ai::hai_kurtosis_vec(y),
-            range = healthyR.ai::hai_range_statistic(y),
-            iqr = stats::IQR(y),
-            variance = stats::var(y)
-        ) %>%
-        dplyr::ungroup()
+  summary_tbl <- data_tbl %>%
+    dplyr::group_by(...) %>%
+    dplyr::select(..., y) %>%
+    dplyr::summarise(
+      mean_val = mean(y, na.rm = TRUE),
+      median_val = stats::median(y, na.rm = TRUE),
+      std_val = sd(y, na.rm = TRUE),
+      min_val = min(y),
+      max_val = max(y),
+      skewness = tidy_skewness_vec(y),
+      kurtosis = tidy_kurtosis_vec(y),
+      range = tidy_range_statistic(y),
+      iqr = stats::IQR(y),
+      variance = stats::var(y)
+    ) %>%
+    dplyr::ungroup()
 
-    return(summary_tbl)
-
+  return(summary_tbl)
 }

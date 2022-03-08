@@ -8,7 +8,11 @@ tidy_autoplot(
   .data,
   .plot_type = "density",
   .line_size = 0.5,
-  .point_size = 0.5,
+  .geom_point = FALSE,
+  .point_size = 1,
+  .geom_rug = FALSE,
+  .geom_smooth = FALSE,
+  .geom_jitter = FALSE,
   .interactive = FALSE
 )
 }
@@ -20,16 +24,30 @@ tidy_autoplot(
 
 \item{.line_size}{The size param ggplot}
 
-\item{.point_size}{The line size param for ggplot}
+\item{.geom_point}{A Boolean value of TREU/FALSE, FALSE is the default. TRUE
+will return a plot with \code{ggplot2::ggeom_point()}}
 
-\item{.interactive}{A boolean value of TRUE/FALSE, FALSE is the default. TRUE
-will return an interactive plotly plot.}
+\item{.point_size}{The point size param for ggplot}
+
+\item{.geom_rug}{A Boolean value of TRUE/FALSE, FALSE is the default. TRUE
+will return the use of \code{ggplot2::geom_rug()}}
+
+\item{.geom_smooth}{A Boolean value of TRUE/FALSE, FALSE is the default. TRUE
+will return the use of \code{ggplot2::geom_smooth()} The \code{aes} parameter of group is
+set to FALSE. This ensures a single smoothing band returned with SE also set to
+FALSE. Color is set to 'black' and \code{linetype} is 'dashed'.}
+
+\item{.geom_jitter}{A Boolean value of TRUE/FALSE, FALSE is the default. TRUE
+will return the use of \code{ggplot2::geom_jitter()}}
+
+\item{.interactive}{A Boolean value of TRUE/FALSE, FALSE is the default. TRUE
+will return an interactive \code{plotly} plot.}
 }
 \value{
 A ggplot or a plotly plot.
 }
 \description{
-This is an autoplotting function that will take in a \code{tidy_}
+This is an auto plotting function that will take in a \code{tidy_}
 distribution function and a few arguments, one being the plot type, which is
 a quoted string of one of the following:
 \itemize{
@@ -52,9 +70,17 @@ This function will spit out one of the following plots:
 }
 }
 \examples{
-tn <- tidy_normal(.num_sims = 5)
-tidy_autoplot(tn, .plot_type = "density", .point_size = .1)
+tidy_normal(.num_sims = 5) \%>\%
+  tidy_autoplot()
 
+tidy_normal(.num_sims = 20) \%>\%
+  tidy_autoplot(.plot_type = "qq")
+}
+\seealso{
+Other Autoplot: 
+\code{\link{tidy_combined_autoplot}()},
+\code{\link{tidy_multi_dist_autoplot}()},
+\code{\link{tidy_random_walk_autoplot}()}
 }
 \author{
 Steven P. Sanderson II, MPH

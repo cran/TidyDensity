@@ -2,7 +2,7 @@
 % Please edit documentation in R/random-tidy-logistic.R
 \name{tidy_logistic}
 \alias{tidy_logistic}
-\title{Tidy Randomly Generated Logistic Tibble}
+\title{Tidy Randomly Generated Logistic Distribution Tibble}
 \usage{
 tidy_logistic(.n = 50, .location = 0, .scale = 1, .num_sims = 1)
 }
@@ -44,26 +44,42 @@ This function uses the underlying \code{stats::rlogis()}, and its underlying
 }
 \examples{
 tidy_logistic()
-
 }
 \seealso{
 \url{https://en.wikipedia.org/wiki/Logistic_distribution}
 
-Other Data Generator: 
+Other Continuous Distribution: 
 \code{\link{tidy_beta}()},
+\code{\link{tidy_burr}()},
 \code{\link{tidy_cauchy}()},
 \code{\link{tidy_chisquare}()},
 \code{\link{tidy_exponential}()},
 \code{\link{tidy_f}()},
 \code{\link{tidy_gamma}()},
-\code{\link{tidy_hypergeometric}()},
+\code{\link{tidy_generalized_beta}()},
+\code{\link{tidy_generalized_pareto}()},
+\code{\link{tidy_geometric}()},
+\code{\link{tidy_inverse_burr}()},
+\code{\link{tidy_inverse_exponential}()},
+\code{\link{tidy_inverse_gamma}()},
+\code{\link{tidy_inverse_normal}()},
+\code{\link{tidy_inverse_pareto}()},
+\code{\link{tidy_inverse_weibull}()},
 \code{\link{tidy_lognormal}()},
 \code{\link{tidy_normal}()},
-\code{\link{tidy_poisson}()},
+\code{\link{tidy_paralogistic}()},
+\code{\link{tidy_pareto1}()},
+\code{\link{tidy_pareto}()},
 \code{\link{tidy_uniform}()},
-\code{\link{tidy_weibull}()}
+\code{\link{tidy_weibull}()},
+\code{\link{tidy_zero_truncated_geometric}()}
+
+Other Logistic: 
+\code{\link{tidy_paralogistic}()},
+\code{\link{util_logistic_param_estimate}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Data Generator}
+\concept{Continuous Distribution}
+\concept{Logistic}

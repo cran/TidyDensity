@@ -2,7 +2,7 @@
 % Please edit documentation in R/random-tidy-beta.R
 \name{tidy_beta}
 \alias{tidy_beta}
-\title{Tidy Randomly Generated Beta Tibble}
+\title{Tidy Randomly Generated Beta Distribution Tibble}
 \usage{
 tidy_beta(.n = 50, .shape1 = 1, .shape2 = 1, .ncp = 0, .num_sims = 1)
 }
@@ -46,28 +46,44 @@ This function uses the underlying \code{stats::rbeta()}, and its underlying
 }
 \examples{
 tidy_beta()
-
 }
 \seealso{
 \url{https://statisticsglobe.com/beta-distribution-in-r-dbeta-pbeta-qbeta-rbeta}
 
 \url{https://en.wikipedia.org/wiki/Beta_distribution}
 
-Other Data Generator: 
+Other Continuous Distribution: 
+\code{\link{tidy_burr}()},
 \code{\link{tidy_cauchy}()},
 \code{\link{tidy_chisquare}()},
 \code{\link{tidy_exponential}()},
 \code{\link{tidy_f}()},
 \code{\link{tidy_gamma}()},
-\code{\link{tidy_hypergeometric}()},
+\code{\link{tidy_generalized_beta}()},
+\code{\link{tidy_generalized_pareto}()},
+\code{\link{tidy_geometric}()},
+\code{\link{tidy_inverse_burr}()},
+\code{\link{tidy_inverse_exponential}()},
+\code{\link{tidy_inverse_gamma}()},
+\code{\link{tidy_inverse_normal}()},
+\code{\link{tidy_inverse_pareto}()},
+\code{\link{tidy_inverse_weibull}()},
 \code{\link{tidy_logistic}()},
 \code{\link{tidy_lognormal}()},
 \code{\link{tidy_normal}()},
-\code{\link{tidy_poisson}()},
+\code{\link{tidy_paralogistic}()},
+\code{\link{tidy_pareto1}()},
+\code{\link{tidy_pareto}()},
 \code{\link{tidy_uniform}()},
-\code{\link{tidy_weibull}()}
+\code{\link{tidy_weibull}()},
+\code{\link{tidy_zero_truncated_geometric}()}
+
+Other Beta: 
+\code{\link{tidy_generalized_beta}()},
+\code{\link{util_beta_param_estimate}()}
 }
 \author{
 Steven P. Sanderson II, MPH
 }
-\concept{Data Generator}
+\concept{Beta}
+\concept{Continuous Distribution}
