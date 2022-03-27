@@ -1,3 +1,25 @@
+# TidyDensity 1.0.1
+
+## Breaking Changes
+1. Fix #91 - Bug fix, change `tidy_gamma()` parameter of `.rate` to `.scale
+Fix `tidy_autoplot_` functions to incorprate this change. Fix `util_gamma_param_estimate()`
+to say `scale` instead of `rate` in the returned estimated parameters.
+
+## New Features
+None
+
+## Minor Fixes and Improvements
+1. Fix #90 - Make sure when `.geom_smooth` is set to TRUE that `ggplot2::xlim(0, max_dy)`
+is set.
+2. Fix #100 - `tidy_multi_single_dist()` failed on distribution with single parameter
+like `tidy_poisson()`
+3. Fix #96 - Enhance all `tidy_` distribution functions to add an attribute of 
+either discrete or continuous that helps in the autoplot process.
+4. Fix #97 - Enhance `tidy_autoplot()` to use histogram or lines for density plot
+depending on if the distribution is discrete or continuous.
+5. Fix #99 - Enhance `tidy_multi_dist_autoplot()` to use histogram or lines for
+density plot depending on if the distribution is discrete or continuous.
+
 # TidyDensity 1.0.0
 
 ## Breaking Changes
