@@ -74,13 +74,15 @@ Other Continuous Distribution:
 \code{\link{tidy_paralogistic}()},
 \code{\link{tidy_pareto1}()},
 \code{\link{tidy_pareto}()},
+\code{\link{tidy_t}()},
 \code{\link{tidy_uniform}()},
 \code{\link{tidy_weibull}()},
 \code{\link{tidy_zero_truncated_geometric}()}
 
 Other Beta: 
 \code{\link{tidy_generalized_beta}()},
-\code{\link{util_beta_param_estimate}()}
+\code{\link{util_beta_param_estimate}()},
+\code{\link{util_beta_stats_tbl}()}
 }
 \author{
 Steven P. Sanderson II, MPH

@@ -1,8 +1,55 @@
+# TidyDensity 1.1.0
+
+## Breaking Changes:
+None
+
+## New Features
+1. Fix #119 - Add function `tidy_four_autoplot()` - This will auto plot the density,
+qq, quantile and probability plots to a single graph.
+2. Fix #125 - Add function `util_weibull_param_estimate()`
+3. Fix #126 - Add function `util_uniform_param_estimate()`
+4. Fix #127 - Add function `util_cauchy_param_estimate()`
+5. Fix #130 - Add function `tidy_t()` - Also add to plotting functions.
+6. Fix #151 - Add function `tidy_mixture_density()`
+7. Fix #150 - Add function `util_geometric_stats_tbl()`
+8. Fix #149 - Add function `util_hypergeometric_stats_tbl()`
+9. Fix #148 - Add function `util_logistic_stats_tbl()`
+10. Fix #147 - Add function `util_lognormal_stats_tbl()`
+11. Fix #146 - Add function `util_negative_binomial_stats_tbl()`
+12. Fix #145 - Add function `util_normal_stats_tbl()`
+13. Fix #144 - Add function `util_pareto_stats_tbl()`
+14. Fix #143 - Add function `util_poisson_stats_tbl()`
+15. Fix #142 - Add function `util_uniform_stats_tbl()`
+16. Fix #141 - Add function `util_cauchy_stats_tbl()`
+17. Fix #140 - Add function `util_t_stats_tbl()`
+18. Fix #139 - Add function `util_f_stats_tbl()`
+19. Fix #138 - Add function `util_chisquare_stats_tbl()`
+20. Fix #137 - Add function `util_weibull_stats_tbl()`
+21. Fix #136 - Add function `util_gamma_stats_tbl()`
+22. Fix #135 - Add function `util_exponential_stats_tbl()`
+23. Fix #134 - Add function `util_binomial_stats_tbl()`
+24. Fix #133 - Add function `util_beta_stats_tbl()`
+
+## Minor Fixes and Improvements
+1. Fix #110 - Bug fix, correct the `p` calculation in `tidy_poisson()` that will
+now produce the correct probability chart from the auto plot functions.
+2. Fix #112 - Bug fix, correct the `p` calculation in `tidy_hypergeometric()` that
+will no produce the correct probability chart from the auto plot functions.
+3. Fix #115 - Fix spelling in Quantile chart.
+4. Fix #117 - Fix probability plot x axis label.
+4. Fix #118 - Fix fill color on combined auto plot
+5. Fix #122 - The `tidy_distribution_summary_tbl()` function did not take the 
+output of `tidy_multi_single_dist()` 
+6. Fix #166 - Change in all plotting functions `ggplot2::xlim(0, max_dy)` to 
+`ggplot2::ylim(0, max_dy)`
+7. Fix #169 - Fix the computation of the `q` column 
+8. Fix #170 - Fix the graphing of the quantile chart due to #169
+
 # TidyDensity 1.0.1
 
 ## Breaking Changes
 1. Fix #91 - Bug fix, change `tidy_gamma()` parameter of `.rate` to `.scale
-Fix `tidy_autoplot_` functions to incorprate this change. Fix `util_gamma_param_estimate()`
+Fix `tidy_autoplot_` functions to incorporate this change. Fix `util_gamma_param_estimate()`
 to say `scale` instead of `rate` in the returned estimated parameters.
 
 ## New Features

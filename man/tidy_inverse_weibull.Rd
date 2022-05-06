@@ -78,12 +78,15 @@ Other Continuous Distribution:
 \code{\link{tidy_paralogistic}()},
 \code{\link{tidy_pareto1}()},
 \code{\link{tidy_pareto}()},
+\code{\link{tidy_t}()},
 \code{\link{tidy_uniform}()},
 \code{\link{tidy_weibull}()},
 \code{\link{tidy_zero_truncated_geometric}()}
 
 Other Weibull: 
-\code{\link{tidy_weibull}()}
+\code{\link{tidy_weibull}()},
+\code{\link{util_weibull_param_estimate}()},
+\code{\link{util_weibull_stats_tbl}()}
 
 Other Inverse Distribution: 
 \code{\link{tidy_inverse_burr}()},

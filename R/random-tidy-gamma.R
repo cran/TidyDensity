@@ -12,7 +12,7 @@
 #' `p`, `d`, and `q` functions. For more information please see [stats::rgamma()]
 #'
 #' @description This function will generate `n` random points from a gamma
-#' distribution with a user provided, `.shape`, `.rate`, and number of
+#' distribution with a user provided, `.shape`, `.scale`, and number of
 #' random simulations to be produced. The function returns a tibble with the
 #' simulation number column the x column which corresponds to the n randomly
 #' generated points, the `d_`, `p_` and `q_` data points as well.
@@ -93,7 +93,7 @@ tidy_gamma <- function(.n = 50, .shape = 1, .scale = 0.3, .num_sims = 1) {
                                    purrr::set_names("dx", "dy") %>%
                                    dplyr::as_tibble())) %>%
         dplyr::mutate(p = list(stats::pgamma(ps, shape = shp, scale = scle))) %>%
-        dplyr::mutate(q = list(stats::qgamma(qs, shape = shp, scale = scle))) %>%
+        dplyr::mutate(q = list(stats::qgamma(tidy_scale_zero_one_vec(unlist(y)), shape = shp, scale = scle))) %>%
         tidyr::unnest(cols = c(x, y, d, p, q)) %>%
         dplyr::ungroup()
 

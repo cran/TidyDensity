@@ -141,11 +141,21 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
             ) +
             ggplot2::theme(legend.position = leg_pos)
     } else if (plot_type == "quantile") {
+        ## EDIT
+        data_tbl <- data_tbl %>%
+            dplyr::select(sim_number, dist_type, q) %>%
+            dplyr::group_by(sim_number, dist_type) %>%
+            dplyr::arrange(q) %>%
+            dplyr::mutate(x = 1:dplyr::n() %>%
+                              tidy_scale_zero_one_vec()) %>%
+            dplyr::ungroup()
+        ## End EDIT
         plt <- data_tbl %>%
             dplyr::filter(q > -Inf, q < Inf) %>%
             ggplot2::ggplot(
                 ggplot2::aes(
-                    x = tidy_scale_zero_one_vec(dx),
+                    #x = tidy_scale_zero_one_vec(dx),
+                    x = x,
                     y = tidy_scale_zero_one_vec(q),
                     group = interaction(dist_type, sim_number),
                     color = dist_type
@@ -154,7 +164,7 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
             ggplot2::geom_line(size = line_size) +
             ggplot2::theme_minimal() +
             ggplot2::labs(
-                title = "Qantile Plot",
+                title = "Quantile Plot",
                 subtitle = sub_title,
                 x = "",
                 y = "",
@@ -165,18 +175,18 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
         plt <- data_tbl %>%
             ggplot2::ggplot(
                 ggplot2::aes(
-                    x = tidy_scale_zero_one_vec(dx),
-                    y = p,
+                    x = y,
                     group = interaction(dist_type, sim_number),
                     color = dist_type
                 )
             ) +
-            ggplot2::geom_line(size = line_size) +
+            ggplot2::stat_ecdf(size = line_size) +
             ggplot2::theme_minimal() +
             ggplot2::labs(
-                title = "Probabilty Plot",
+                title = "Probability Plot",
                 subtitle = sub_title,
-                color = "Simulation"
+                color = "Simulation",
+                x = "dx"
             ) +
             ggplot2::theme(legend.position = leg_pos)
     } else if (plot_type == "qq") {
@@ -221,7 +231,7 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
                 color = "black",
                 linetype = "dashed"
             ) +
-            ggplot2::xlim(0, max_dy)
+            ggplot2::ylim(0, max_dy)
     }
 
     if (.geom_jitter) {

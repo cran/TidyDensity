@@ -89,7 +89,7 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
         "tidy_pareto_single_parameter", "tidy_pareto", "tidy_inverse_pareto",
         "tidy_generalized_pareto","tidy_paralogistic", "tidy_inverse_exponential",
         "tidy_inverse_gamma","tidy_inverse_weibull","tidy_burr","tidy_inverse_burr",
-        "tidy_inverse_gaussian","tidy_generalized_beta"
+        "tidy_inverse_gaussian","tidy_generalized_beta","tidy_t"
     )) {
         rlang::abort("The data passed must come from a `tidy_` distribution function.")
     }
@@ -131,7 +131,7 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
             paste0("Mean Log: ", atb$.meanlog, " - SD Log: ", atb$.sdlog)
         } else if (atb$tibble_type == "tidy_cauchy") {
             paste0("Location: ", atb$.location, " - Scale: ", atb$.scale)
-        } else if (atb$tibble_type == "tidy_chisquare") {
+        } else if (atb$tibble_type %in% c("tidy_chisquare","tidy_t")) {
             paste0("DF: ", atb$.df, " - NPC: ", atb$.ncp)
         } else if (atb$tibble_type == "tidy_weibull") {
             paste0("Shape: ", atb$.schape, " - Scale: ", atb$.scale)
@@ -228,16 +228,24 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
             ) +
             ggplot2::theme(legend.position = leg_pos)
     } else if (plot_type == "quantile") {
+        ## EDIT
+        data_tbl <- data_tbl %>%
+            dplyr::select(sim_number, q) %>%
+            dplyr::group_by(sim_number) %>%
+            dplyr::arrange(q) %>%
+            dplyr::mutate(x = 1:dplyr::n()) %>%
+            dplyr::ungroup()
+        ## End EDIT
         plt <- data_tbl %>%
             ggplot2::ggplot(
                 ggplot2::aes(
-                    x = qs, y = q, group = sim_number, color = sim_number
+                    x = x, y = q, group = sim_number, color = sim_number
                 )
             ) +
             ggplot2::geom_line(size = line_size) +
             ggplot2::theme_minimal() +
             ggplot2::labs(
-                title = "Qantile Plot",
+                title = "Quantile Plot",
                 subtitle = sub_title,
                 color = "Simulation"
             ) +
@@ -245,14 +253,12 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
     } else if (plot_type == "probability") {
         plt <- data_tbl %>%
             ggplot2::ggplot(
-                ggplot2::aes(
-                    x = ps, y = p, color = sim_number, group = sim_number
-                )
+                ggplot2::aes(x = y, color = sim_number, group = sim_number)
             ) +
-            ggplot2::geom_line(size = line_size) +
+            ggplot2::stat_ecdf(size = line_size) +
             ggplot2::theme_minimal() +
             ggplot2::labs(
-                title = "Probabilty Plot",
+                title = "Probability Plot",
                 subtitle = sub_title,
                 color = "Simulation"
             ) +
@@ -297,7 +303,7 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
                 color = "black",
                 linetype = "dashed"
             ) +
-            ggplot2::xlim(0, max_dy)
+            ggplot2::ylim(0, max_dy)
     }
 
     if (.geom_jitter) {

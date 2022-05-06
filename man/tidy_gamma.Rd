@@ -21,7 +21,7 @@ A tibble of randomly generated data.
 }
 \description{
 This function will generate \code{n} random points from a gamma
-distribution with a user provided, \code{.shape}, \code{.rate}, and number of
+distribution with a user provided, \code{.shape}, \code{.scale}, and number of
 random simulations to be produced. The function returns a tibble with the
 simulation number column the x column which corresponds to the n randomly
 generated points, the \code{d_}, \code{p_} and \code{q_} data points as well.
@@ -73,13 +73,15 @@ Other Continuous Distribution:
 \code{\link{tidy_paralogistic}()},
 \code{\link{tidy_pareto1}()},
 \code{\link{tidy_pareto}()},
+\code{\link{tidy_t}()},
 \code{\link{tidy_uniform}()},
 \code{\link{tidy_weibull}()},
 \code{\link{tidy_zero_truncated_geometric}()}
 
 Other Gamma: 
 \code{\link{tidy_inverse_gamma}()},
-\code{\link{util_gamma_param_estimate}()}
+\code{\link{util_gamma_param_estimate}()},
+\code{\link{util_gamma_stats_tbl}()}
 }
 \author{
 Steven P. Sanderson II, MPH

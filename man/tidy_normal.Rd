@@ -69,13 +69,15 @@ Other Continuous Distribution:
 \code{\link{tidy_paralogistic}()},
 \code{\link{tidy_pareto1}()},
 \code{\link{tidy_pareto}()},
+\code{\link{tidy_t}()},
 \code{\link{tidy_uniform}()},
 \code{\link{tidy_weibull}()},
 \code{\link{tidy_zero_truncated_geometric}()}
 
 Other Gaussian: 
 \code{\link{tidy_inverse_normal}()},
-\code{\link{util_normal_param_estimate}()}
+\code{\link{util_normal_param_estimate}()},
+\code{\link{util_normal_stats_tbl}()}
 }
 \author{
 Steven P. Sanderson II, MPH
