@@ -1,6 +1,6 @@
 Package: TidyDensity
 Title: Functions for Tidy Analysis and Generation of Random Data
-Version: 1.1.0
+Version: 1.2.0
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre")),
     person("Steven Sanderson", role = "cph"))
@@ -12,7 +12,7 @@ Description:
     'tidyverse'.
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 URL: https://github.com/spsanderson/TidyDensity
 BugReports: https://github.com/spsanderson/TidyDensity/issues
 Imports: magrittr, rlang (>= 0.4.11), dplyr, ggplot2, plotly, tidyr,
@@ -21,9 +21,9 @@ Imports: magrittr, rlang (>= 0.4.11), dplyr, ggplot2, plotly, tidyr,
 Suggests: rmarkdown, knitr, roxygen2, EnvStats
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2022-05-06 17:02:30 UTC; Steve
+Packaged: 2022-06-08 13:21:27 UTC; Steve
 Author: Steven Sanderson [aut, cre],
   Steven Sanderson [cph]
 Maintainer: Steven Sanderson <spsanderson@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-05-06 17:20:02 UTC
+Date/Publication: 2022-06-08 13:50:02 UTC

@@ -4,16 +4,21 @@
 \alias{tidy_empirical}
 \title{Tidy Empirical}
 \usage{
-tidy_empirical(.x)
+tidy_empirical(.x, .num_sims = 1, .distribution_type = "continuous")
 }
 \arguments{
 \item{.x}{A vector of numbers}
+
+\item{.num_sims}{How many simulations should be run, defaults to 1.}
+
+\item{.distribution_type}{A string of either "continuous" or "discrete". The
+function will default to "continuous"}
 }
 \value{
 A tibble
 }
 \description{
-This function takes in a single arguemtn of .x a vector and will
+This function takes in a single argument of .x a vector and will
 return a tibble of information similar to the \code{tidy_} distribution functions.
 The \code{y} column is set equal to \code{dy} from the density function.
 }
@@ -21,7 +26,10 @@ The \code{y} column is set equal to \code{dy} from the density function.
 This function takes in a single argument of .x a vector
 }
 \examples{
-tidy_empirical(.x = 1:10)
+x <- mtcars$mpg
+tidy_empirical(.x = x, .distribution_type = "continuous")
+tidy_empirical(.x = x, .num_sims = 10, .distribution_type = "continuous")
+
 }
 \author{
 Steven P. Sanderson II, MPH
