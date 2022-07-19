@@ -1,3 +1,22 @@
+# TidyDensity 1.2.1
+
+## Breaking Changes
+None
+
+## New Features
+None
+
+## Minor Fixes and Improvments
+1. Fix #210 - Fix param_grid order on internal which affected attributes and thus
+the display of the order of the parameters.
+2. Fix #211 - Add High and Low CI to `tidy_distribution_summary_tbl()`
+3. Fix #213 - Use `purrr::compact()` on the list of distributions passed in order
+to prevent the issue occurring in #212
+4. Fix #212 - Make `tidy_distribution_comparison()` more robust in terms of handling
+bad or erroneous data.
+5. Fix #216 - Add an attribute of "tibble_type" to `tidy_multi_single_dist()` which
+helps it to work with other functions like `tidy_random_walk()`
+
 # TidyDensity 1.2.0
 
 ## Breaking Changes
