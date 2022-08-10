@@ -1,6 +1,6 @@
 Package: TidyDensity
 Title: Functions for Tidy Analysis and Generation of Random Data
-Version: 1.2.1
+Version: 1.2.2
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre")),
     person("Steven Sanderson", role = "cph"))
@@ -17,13 +17,13 @@ URL: https://github.com/spsanderson/TidyDensity
 BugReports: https://github.com/spsanderson/TidyDensity/issues
 Imports: magrittr, rlang (>= 0.4.11), dplyr, ggplot2, plotly, tidyr,
         purrr, stringr, actuar, methods, stats, patchwork, survival,
-        nloptr
+        nloptr, broom
 Suggests: rmarkdown, knitr, roxygen2, EnvStats
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2022-07-19 18:05:26 UTC; steve
+Packaged: 2022-08-10 00:37:50 UTC; steve
 Author: Steven Sanderson [aut, cre],
   Steven Sanderson [cph]
 Maintainer: Steven Sanderson <spsanderson@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-07-19 18:50:02 UTC
+Date/Publication: 2022-08-10 07:30:05 UTC

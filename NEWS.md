@@ -1,3 +1,16 @@
+# TidyDensity 1.2.2
+
+## Breaking Changes
+None
+
+## New Features
+1. Fix #229 - Add `tidy_normal()` to list of tested distributions. Add `AIC` from
+a linear model for metric, and add `stats::ks.test()` as a metric.
+
+## Minor Fixes and Improvements
+1. Fix #228 - Add ks.test to distribution comparison.
+2. Fix #227 - Add AIC and normal to distribution comparison.
+
 # TidyDensity 1.2.1
 
 ## Breaking Changes
