@@ -1,3 +1,24 @@
+# TidyDensity 1.2.3
+
+## Breaking Changes
+None
+
+## New Features
+1. Fix #237 - Add function `bootstrap_density_augment()`
+2. Fix #238 - Add functions `bootstrap_p_vec()` and `bootstrap_p_augment()`
+3. Fix #239 - Add functions `bootstrap_q_vec()` and `bootstrap_q_augment()`
+4. Fix #256 #257 #258 #260 #265 #266 #267 #268 - Add functions `cmean()`
+`chmean()` `cgmean()` `cmedian()` `csd()` `ckurtosis()` `cskewness()` `cvar()`
+5. Fix #250 - Add function `bootstrap_stat_plot()`
+6. Fix #276 - Add function `tidy_stat_tbl()` Fix #281 adds the parameter of 
+`.user_data_table` which is set to `FALSE` by default. If set to `TRUE` will use
+`[data.table::melt()]` for the underlying work speeding up the output from a 
+benchmark test of regular `tibble` at 72 seconds to `data.table.` at 15 seconds.
+
+## Minor Fixes and Improvements
+1. Fix #242 - Fix `prop` check in `tidy_bootstrap()`
+2. Fix #247 - Add attributes to `bootstrap_density_augment()` output.
+
 # TidyDensity 1.2.2
 
 ## Breaking Changes

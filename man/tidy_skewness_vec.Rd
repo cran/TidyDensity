@@ -33,9 +33,20 @@ Other Statistic:
 \code{\link{ci_hi}()},
 \code{\link{ci_lo}()},
 \code{\link{tidy_kurtosis_vec}()},
-\code{\link{tidy_range_statistic}()}
+\code{\link{tidy_range_statistic}()},
+\code{\link{tidy_stat_tbl}()}
 
 Other Vector Function: 
+\code{\link{bootstrap_p_vec}()},
+\code{\link{bootstrap_q_vec}()},
+\code{\link{cgmean}()},
+\code{\link{chmean}()},
+\code{\link{ckurtosis}()},
+\code{\link{cmean}()},
+\code{\link{cmedian}()},
+\code{\link{csd}()},
+\code{\link{cskewness}()},
+\code{\link{cvar}()},
 \code{\link{tidy_kurtosis_vec}()},
 \code{\link{tidy_scale_zero_one_vec}()}
 }
