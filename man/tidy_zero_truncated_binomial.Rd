@@ -4,7 +4,7 @@
 \alias{tidy_zero_truncated_binomial}
 \title{Tidy Randomly Generated Binomial Distribution Tibble}
 \usage{
-tidy_zero_truncated_binomial(.n = 50, .size = 0, .prob = 1, .num_sims = 1)
+tidy_zero_truncated_binomial(.n = 50, .size = 1, .prob = 1, .num_sims = 1)
 }
 \arguments{
 \item{.n}{The number of randomly generated points you want.}
@@ -49,6 +49,7 @@ tidy_zero_truncated_binomial()
 \url{https://openacttexts.github.io/Loss-Data-Analytics/ChapSummaryDistributions.html}
 
 Other Discrete Distribution: 
+\code{\link{tidy_bernoulli}()},
 \code{\link{tidy_binomial}()},
 \code{\link{tidy_hypergeometric}()},
 \code{\link{tidy_negative_binomial}()},

@@ -1,3 +1,28 @@
+# TidyDensity 1.2.4
+
+## Breaking Changes
+None
+
+## New Features
+1. Fix #302 - Add function `tidy_bernoulli()` 
+2. Fix #304 - Add function `util_bernoulli_param_estimate()`
+3. Fix #305 - Add function `util_bernoulli_stats_tbl()`
+
+## Minor Fixes and Improvements
+1. Fix #291 - Update `tidy_stat_tbl()` to fix `tibble` output so it no longer ignores
+passed arguments and fix `data.table` to directly pass ... arguments.
+2. Fix #295 - Drop warning message of not passing arguments when .use_data_table = TRUE
+3. Fix #303 - Add `tidy_bernoulli()` to autoplot.
+4. Fix #299 - Update `tidy_stat_tbl()`
+5. Fix #309 - Add function for internal use to drop dependency of stringr. Function
+is `dist_type_extractor()` which is used for several functions in the library.
+6. Fix #310 - Update combine-multi-dist to use `dist_type_extractor()`
+7. Fix #311 - Update all `util_dist_stats_tbl()` functions to use `dist_type_extractor()`
+8. Fix #316 - Update all `autoplot` functions for `tidy_bernoulli()`
+9. Fix #312 - Update random walk function to use `dist_type_extractor()`
+10. Fix #314 - Update `tidy_stat_tbl()` to use `dist_type_extractor()`
+11. Fix #301 - Fix `p` and `q` calculations.
+
 # TidyDensity 1.2.3
 
 ## Breaking Changes
