@@ -31,12 +31,12 @@ This function will see if the given vector \code{.x} is a numeric vector.
 library(dplyr)
 library(ggplot2)
 
-te <- tidy_exponential(.rate = .1) \%>\% pull(y)
+te <- tidy_exponential(.rate = .1) |> pull(y)
 output <- util_exponential_param_estimate(te)
 
 output$parameter_tbl
 
-output$combined_data_tbl \%>\%
+output$combined_data_tbl |>
   tidy_combined_autoplot()
 
 }
@@ -56,6 +56,7 @@ Other Parameter Estimation:
 \code{\link{util_normal_param_estimate}()},
 \code{\link{util_pareto_param_estimate}()},
 \code{\link{util_poisson_param_estimate}()},
+\code{\link{util_triangular_param_estimate}()},
 \code{\link{util_uniform_param_estimate}()},
 \code{\link{util_weibull_param_estimate}()}
 

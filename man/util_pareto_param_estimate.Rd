@@ -42,10 +42,10 @@ output <- util_pareto_param_estimate(x)
 
 output$parameter_tbl
 
-output$combined_data_tbl \%>\%
+output$combined_data_tbl |>
   tidy_combined_autoplot()
 
-t <- tidy_pareto(50, 1, 1) \%>\% pull(y)
+t <- tidy_pareto(50, 1, 1) |> pull(y)
 util_pareto_param_estimate(t)$parameter_tbl
 
 }
@@ -65,6 +65,7 @@ Other Parameter Estimation:
 \code{\link{util_negative_binomial_param_estimate}()},
 \code{\link{util_normal_param_estimate}()},
 \code{\link{util_poisson_param_estimate}()},
+\code{\link{util_triangular_param_estimate}()},
 \code{\link{util_uniform_param_estimate}()},
 \code{\link{util_weibull_param_estimate}()}
 

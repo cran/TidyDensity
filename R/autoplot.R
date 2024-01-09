@@ -42,16 +42,17 @@
 #' will return an interactive `plotly` plot.
 #'
 #' @examples
-#' tidy_normal(.num_sims = 5) %>%
+#' tidy_normal(.num_sims = 5) |>
 #'   tidy_autoplot()
 #'
-#' tidy_normal(.num_sims = 20) %>%
+#' tidy_normal(.num_sims = 20) |>
 #'   tidy_autoplot(.plot_type = "qq")
 #' @return
 #' A ggplot or a plotly plot.
-#'
+#' @name tidy_autoplot
+NULL
 #' @export
-#'
+#' @rdname tidy_autoplot
 
 tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
                           .geom_point = FALSE, .point_size = 1,
@@ -91,7 +92,8 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
     "tidy_pareto_single_parameter", "tidy_pareto", "tidy_inverse_pareto",
     "tidy_generalized_pareto", "tidy_paralogistic", "tidy_inverse_exponential",
     "tidy_inverse_gamma", "tidy_inverse_weibull", "tidy_burr", "tidy_inverse_burr",
-    "tidy_inverse_gaussian", "tidy_generalized_beta", "tidy_t","tidy_bernoulli"
+    "tidy_inverse_gaussian", "tidy_generalized_beta", "tidy_t","tidy_bernoulli",
+    "tidy_triangular"
   )) {
     rlang::abort("The data passed must come from a `tidy_` distribution function.")
   }
@@ -109,9 +111,6 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
   # for ggplot
   n <- atb$.n
   sims <- atb$.num_sims
-  # dist_type <- stringr::str_remove(atb$tibble_type, "tidy_") %>%
-  #   stringr::str_replace_all(pattern = "_", " ") %>%
-  #   stringr::str_to_title()
   dist_type <- dist_type_extractor(atb$tibble_type)
 
   sub_title <- paste0(
@@ -196,6 +195,12 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
         "Scale: ", atb$.scale, " - ",
         "Rate: ", atb$.rate
       )
+    } else if (atb$tibble_type == "tidy_triangular") {
+        paste0(
+            "Min: ", atb$.min, " - ",
+            "Max: ", atb$.max, " - ",
+            "Mode: ", atb$.mode
+        )
     }
   )
 
@@ -212,11 +217,11 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
   }
 
   if (plot_type == "density" & atb$distribution_family_type == "continuous") {
-    plt <- data_tbl %>%
+    plt <- data_tbl |>
       ggplot2::ggplot(
         ggplot2::aes(x = dx, y = dy, group = sim_number, color = sim_number)
       ) +
-      ggplot2::geom_line(size = line_size) +
+      ggplot2::geom_line(linewidth = line_size) +
       ggplot2::theme_minimal() +
       ggplot2::labs(
         title = "Density Plot",
@@ -225,7 +230,7 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
       ) +
       ggplot2::theme(legend.position = leg_pos)
   } else if (plot_type == "density" & atb$distribution_family_type == "discrete") {
-    plt <- data_tbl %>%
+    plt <- data_tbl |>
       ggplot2::ggplot(ggplot2::aes(x = y, group = sim_number, fill = sim_number)) +
       ggplot2::geom_histogram(
         alpha = 0.318, color = "#e9ecef",
@@ -241,20 +246,20 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
       ggplot2::theme(legend.position = leg_pos)
   } else if (plot_type == "quantile") {
     ## EDIT
-    data_tbl <- data_tbl %>%
-      dplyr::select(sim_number, q) %>%
-      dplyr::group_by(sim_number) %>%
-      dplyr::arrange(q) %>%
-      dplyr::mutate(x = 1:dplyr::n()) %>%
+    data_tbl <- data_tbl |>
+      dplyr::select(sim_number, q) |>
+      dplyr::group_by(sim_number) |>
+      dplyr::arrange(q) |>
+      dplyr::mutate(x = 1:dplyr::n()) |>
       dplyr::ungroup()
     ## End EDIT
-    plt <- data_tbl %>%
+    plt <- data_tbl |>
       ggplot2::ggplot(
         ggplot2::aes(
           x = x, y = q, group = sim_number, color = sim_number
         )
       ) +
-      ggplot2::geom_line(size = line_size) +
+      ggplot2::geom_line(linewidth = line_size) +
       ggplot2::theme_minimal() +
       ggplot2::labs(
         title = "Quantile Plot",
@@ -263,11 +268,11 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
       ) +
       ggplot2::theme(legend.position = leg_pos)
   } else if (plot_type == "probability") {
-    plt <- data_tbl %>%
+    plt <- data_tbl |>
       ggplot2::ggplot(
         ggplot2::aes(x = y, color = sim_number, group = sim_number)
       ) +
-      ggplot2::stat_ecdf(size = line_size) +
+      ggplot2::stat_ecdf(linewidth = line_size) +
       ggplot2::theme_minimal() +
       ggplot2::labs(
         title = "Probability Plot",
@@ -276,14 +281,14 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
       ) +
       ggplot2::theme(legend.position = leg_pos)
   } else if (plot_type == "qq") {
-    plt <- data_tbl %>%
+    plt <- data_tbl |>
       ggplot2::ggplot(
         ggplot2::aes(
           sample = y, color = sim_number, group = sim_number
         )
       ) +
       ggplot2::stat_qq(size = point_size) +
-      ggplot2::stat_qq_line(size = line_size) +
+      ggplot2::stat_qq_line(linewidth = line_size) +
       ggplot2::theme_minimal() +
       ggplot2::labs(
         title = "QQ Plot",
@@ -292,14 +297,14 @@ tidy_autoplot <- function(.data, .plot_type = "density", .line_size = .5,
       ) +
       ggplot2::theme(legend.position = leg_pos)
   } else if (plot_type == "mcmc") {
-    plt <- data_tbl %>%
-      dplyr::group_by(sim_number) %>%
-      dplyr::mutate(cmy = dplyr::cummean(y)) %>%
-      dplyr::ungroup() %>%
+    plt <- data_tbl |>
+      dplyr::group_by(sim_number) |>
+      dplyr::mutate(cmy = dplyr::cummean(y)) |>
+      dplyr::ungroup() |>
       ggplot2::ggplot(ggplot2::aes(
         x = x, y = cmy, group = sim_number, color = sim_number
       )) +
-      ggplot2::geom_line() +
+      ggplot2::geom_line(linewidth = line_size) +
       ggplot2::theme_minimal() +
       ggplot2::scale_x_continuous(trans = "log10") +
       ggplot2::labs(

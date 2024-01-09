@@ -1,3 +1,36 @@
+# TidyDensity 1.3.0
+
+## Breaking Changes
+1. Fix #350 - This has caused the function `tidy_multi_single_dist()` to be modified
+in that it now requires the user to pass the parameter of `.return_tibbl` with either
+TRUE or FALSE as it was introduced into the `tidy_` distribution functions which now
+use `data.table` under the hood to generate data.
+2. Fix #371 - Modify code to use the native `|>` pipe instead of the `%>%` which 
+has caused a need to update the minimum R version to 4.1.0
+
+## New Features
+1. Fix #360 - Add function `tidy_triangular()`
+2. Fix #361 - Add function `util_triangular_param_estimate()`
+3. Fix #362 - Add function `util_triangular_stats_tbl()`
+4. Fix #364 - Add function `triangle_plot()`
+5. Fix #363 - Add triangular to `tidy_autoplot()`
+
+## Minor Fixes and Improvements
+1. Fix #372 and #373 - Update `cvar()` and `csd()` to a vectorized approach from @kokbent
+which speeds these up by over 100x
+2. Fix #350 - Update all `tidy_` distribution functions to generate data using `data.table` 
+this in many instances has resulted in a speed up of 30% or more.
+3. Fix #379 - Replace the use of `dplyr::cur_data()` as it was deprecated in 
+dplyr in favor of using `dplyr::pick()`
+4. Fix #381 - Add `tidy_triangular()` to all autoplot functions.
+5. Fix #385 - For `tidy_multi_dist_autoplot()` the `.plot_type = "quantile"` did
+not work.
+6. Fix #383 - Update all autoplot functions to use linewidth instead of size.
+7. Fix #375 - Update `cskewness()` to take advantage of vectorization with a speedup
+of 124x faster.
+8. Fix #393 - Update `ckurtosis()` with vectorization to improve speed by 121x per
+benchmark testing.
+
 # TidyDensity 1.2.6
 
 ## Breaking Changes

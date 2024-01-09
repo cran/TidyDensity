@@ -33,12 +33,12 @@ It will attempt to estimate the prob parameter of a Bernoulli distribution.
 library(dplyr)
 library(ggplot2)
 
-tb <- tidy_bernoulli(.prob = .1) \%>\% pull(y)
+tb <- tidy_bernoulli(.prob = .1) |> pull(y)
 output <- util_bernoulli_param_estimate(tb)
 
 output$parameter_tbl
 
-output$combined_data_tbl \%>\%
+output$combined_data_tbl |>
   tidy_combined_autoplot()
 
 }
@@ -58,6 +58,7 @@ Other Parameter Estimation:
 \code{\link{util_normal_param_estimate}()},
 \code{\link{util_pareto_param_estimate}()},
 \code{\link{util_poisson_param_estimate}()},
+\code{\link{util_triangular_param_estimate}()},
 \code{\link{util_uniform_param_estimate}()},
 \code{\link{util_weibull_param_estimate}()}
 

@@ -4,7 +4,13 @@
 \alias{tidy_inverse_exponential}
 \title{Tidy Randomly Generated Inverse Exponential Distribution Tibble}
 \usage{
-tidy_inverse_exponential(.n = 50, .rate = 1, .scale = 1/.rate, .num_sims = 1)
+tidy_inverse_exponential(
+  .n = 50,
+  .rate = 1,
+  .scale = 1/.rate,
+  .num_sims = 1,
+  .return_tibble = TRUE
+)
 }
 \arguments{
 \item{.n}{The number of randomly generated points you want.}
@@ -14,6 +20,9 @@ tidy_inverse_exponential(.n = 50, .rate = 1, .scale = 1/.rate, .num_sims = 1)
 \item{.scale}{Must be strictly positive.}
 
 \item{.num_sims}{The number of randomly generated simulations you want.}
+
+\item{.return_tibble}{A logical value indicating whether to return the result
+as a tibble. Default is TRUE.}
 }
 \value{
 A tibble of randomly generated data.
@@ -71,6 +80,7 @@ Other Continuous Distribution:
 \code{\link{tidy_paralogistic}()},
 \code{\link{tidy_pareto1}()},
 \code{\link{tidy_pareto}()},
+\code{\link{tidy_triangular}()},
 \code{\link{tidy_t}()},
 \code{\link{tidy_uniform}()},
 \code{\link{tidy_weibull}()},

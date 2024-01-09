@@ -4,7 +4,7 @@
 \alias{tidy_normal}
 \title{Tidy Randomly Generated Gaussian Distribution Tibble}
 \usage{
-tidy_normal(.n = 50, .mean = 0, .sd = 1, .num_sims = 1)
+tidy_normal(.n = 50, .mean = 0, .sd = 1, .num_sims = 1, .return_tibble = TRUE)
 }
 \arguments{
 \item{.n}{The number of randomly generated points you want.}
@@ -14,6 +14,9 @@ tidy_normal(.n = 50, .mean = 0, .sd = 1, .num_sims = 1)
 \item{.sd}{The standard deviation of the randomly generated data.}
 
 \item{.num_sims}{The number of randomly generated simulations you want.}
+
+\item{.return_tibble}{A logical value indicating whether to return the result
+as a tibble. Default is TRUE.}
 }
 \value{
 A tibble of randomly generated data.
@@ -45,6 +48,7 @@ more information please see \code{\link[stats:Normal]{stats::rnorm()}}
 }
 \examples{
 tidy_normal()
+
 }
 \seealso{
 Other Continuous Distribution: 
@@ -69,6 +73,7 @@ Other Continuous Distribution:
 \code{\link{tidy_paralogistic}()},
 \code{\link{tidy_pareto1}()},
 \code{\link{tidy_pareto}()},
+\code{\link{tidy_triangular}()},
 \code{\link{tidy_t}()},
 \code{\link{tidy_uniform}()},
 \code{\link{tidy_weibull}()},

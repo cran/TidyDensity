@@ -23,8 +23,8 @@ passed from a \code{tidy_} distribution function.
 \examples{
 library(dplyr)
 
-tidy_f() \%>\%
-  util_f_stats_tbl() \%>\%
+tidy_f() |>
+  util_f_stats_tbl() |>
   glimpse()
 
 }
@@ -50,6 +50,7 @@ Other Distribution Statistics:
 \code{\link{util_pareto_stats_tbl}()},
 \code{\link{util_poisson_stats_tbl}()},
 \code{\link{util_t_stats_tbl}()},
+\code{\link{util_triangular_stats_tbl}()},
 \code{\link{util_uniform_stats_tbl}()},
 \code{\link{util_weibull_stats_tbl}()}
 }

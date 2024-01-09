@@ -47,10 +47,10 @@
 #'
 #' combined_tbl
 #'
-#' combined_tbl %>%
+#' combined_tbl |>
 #'   tidy_combined_autoplot()
 #'
-#' combined_tbl %>%
+#' combined_tbl |>
 #'   tidy_combined_autoplot(.plot_type = "qq")
 #'
 #' @return
@@ -126,7 +126,7 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
   }
 
   if (plot_type == "density") {
-    plt <- data_tbl %>%
+    plt <- data_tbl |>
       ggplot2::ggplot(
         ggplot2::aes(
           x = dx, y = dy,
@@ -134,7 +134,7 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
           color = dist_type
         )
       ) +
-      ggplot2::geom_line(size = line_size) +
+      ggplot2::geom_line(linewidth = line_size) +
       ggplot2::theme_minimal() +
       ggplot2::labs(
         title = "Density Plot",
@@ -144,16 +144,16 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
       ggplot2::theme(legend.position = leg_pos)
   } else if (plot_type == "quantile") {
     ## EDIT
-    data_tbl <- data_tbl %>%
-      dplyr::select(sim_number, dist_type, q) %>%
-      dplyr::group_by(sim_number, dist_type) %>%
-      dplyr::arrange(q) %>%
-      dplyr::mutate(x = 1:dplyr::n() %>%
-        tidy_scale_zero_one_vec()) %>%
+    data_tbl <- data_tbl |>
+      dplyr::select(sim_number, dist_type, q) |>
+      dplyr::group_by(sim_number, dist_type) |>
+      dplyr::arrange(q) |>
+      dplyr::mutate(x = 1:dplyr::n() |>
+        tidy_scale_zero_one_vec()) |>
       dplyr::ungroup()
     ## End EDIT
-    plt <- data_tbl %>%
-      dplyr::filter(q > -Inf, q < Inf) %>%
+    plt <- data_tbl |>
+      dplyr::filter(q > -Inf, q < Inf) |>
       ggplot2::ggplot(
         ggplot2::aes(
           # x = tidy_scale_zero_one_vec(dx),
@@ -163,7 +163,7 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
           color = dist_type
         )
       ) +
-      ggplot2::geom_line(size = line_size) +
+      ggplot2::geom_line(linewidth = line_size) +
       ggplot2::theme_minimal() +
       ggplot2::labs(
         title = "Quantile Plot",
@@ -174,7 +174,7 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
       ) +
       ggplot2::theme(legend.position = leg_pos)
   } else if (plot_type == "probability") {
-    plt <- data_tbl %>%
+    plt <- data_tbl |>
       ggplot2::ggplot(
         ggplot2::aes(
           x = y,
@@ -182,7 +182,7 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
           color = dist_type
         )
       ) +
-      ggplot2::stat_ecdf(size = line_size) +
+      ggplot2::stat_ecdf(linewidth = line_size) +
       ggplot2::theme_minimal() +
       ggplot2::labs(
         title = "Probability Plot",
@@ -192,7 +192,7 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
       ) +
       ggplot2::theme(legend.position = leg_pos)
   } else if (plot_type == "qq") {
-    plt <- data_tbl %>%
+    plt <- data_tbl |>
       ggplot2::ggplot(
         ggplot2::aes(
           sample = y,
@@ -201,7 +201,7 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
         )
       ) +
       ggplot2::stat_qq(size = point_size) +
-      ggplot2::stat_qq_line(size = line_size) +
+      ggplot2::stat_qq_line(linewidth = line_size) +
       ggplot2::theme_minimal() +
       ggplot2::labs(
         title = "QQ Plot",
@@ -210,12 +210,12 @@ tidy_combined_autoplot <- function(.data, .plot_type = "density", .line_size = .
       ) +
       ggplot2::theme(legend.position = leg_pos)
   } else if (plot_type == "mcmc") {
-    plt <- data_tbl %>%
-      dplyr::group_by(sim_number) %>%
-      dplyr::mutate(cmy = dplyr::cummean(y)) %>%
-      dplyr::ungroup() %>%
+    plt <- data_tbl |>
+      dplyr::group_by(sim_number, dist_type) |>
+      dplyr::mutate(cmy = dplyr::cummean(y)) |>
+      dplyr::ungroup() |>
       ggplot2::ggplot(ggplot2::aes(
-        x = x, y = cmy, group = sim_number, color = sim_number
+        x = x, y = cmy, group = interaction(dist_type, sim_number), color = sim_number
       )) +
       ggplot2::geom_line() +
       ggplot2::theme_minimal() +

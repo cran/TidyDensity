@@ -36,7 +36,7 @@ output <- util_uniform_param_estimate(x)
 
 output$parameter_tbl
 
-output$combined_data_tbl \%>\%
+output$combined_data_tbl |>
   tidy_combined_autoplot()
 
 }
@@ -57,6 +57,7 @@ Other Parameter Estimation:
 \code{\link{util_normal_param_estimate}()},
 \code{\link{util_pareto_param_estimate}()},
 \code{\link{util_poisson_param_estimate}()},
+\code{\link{util_triangular_param_estimate}()},
 \code{\link{util_weibull_param_estimate}()}
 
 Other Uniform: 

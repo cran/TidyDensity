@@ -72,17 +72,18 @@ This function will spit out one of the following plots:
 tn <- tidy_multi_single_dist(
   .tidy_dist = "tidy_normal",
   .param_list = list(
-    .n = 500,
+    .n = 100,
     .mean = c(-2, 0, 2),
     .sd = 1,
-    .num_sims = 5
+    .num_sims = 5,
+    .return_tibble = TRUE
   )
 )
 
-tn \%>\%
+tn |>
   tidy_multi_dist_autoplot()
 
-tn \%>\%
+tn |>
   tidy_multi_dist_autoplot(.plot_type = "qq")
 
 }

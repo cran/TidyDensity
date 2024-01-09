@@ -42,10 +42,10 @@ output <- util_lognormal_param_estimate(x)
 
 output$parameter_tbl
 
-output$combined_data_tbl \%>\%
+output$combined_data_tbl |>
   tidy_combined_autoplot()
 
-tb <- tidy_lognormal(.meanlog = 2, .sdlog = 1) \%>\% pull(y)
+tb <- tidy_lognormal(.meanlog = 2, .sdlog = 1) |> pull(y)
 util_lognormal_param_estimate(tb)$parameter_tbl
 
 }
@@ -65,6 +65,7 @@ Other Parameter Estimation:
 \code{\link{util_normal_param_estimate}()},
 \code{\link{util_pareto_param_estimate}()},
 \code{\link{util_poisson_param_estimate}()},
+\code{\link{util_triangular_param_estimate}()},
 \code{\link{util_uniform_param_estimate}()},
 \code{\link{util_weibull_param_estimate}()}
 

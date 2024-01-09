@@ -19,13 +19,21 @@
 #' cvar(x)
 #'
 #' @return
-#' A numeric vector
+#' A numeric vector. Note: The first entry will always be
+#' NaN.
 #'
 #' @export
 #'
 
 cvar <- function(.x) {
-  sapply(seq_along(.x), function(k, z) stats::var(z[1:k]), z = .x)
+  n <- length(.x)
+  csumx <- base::cumsum(.x)
+  cmeanx <- cmean(.x)
+
+  p1 <- base::cumsum(.x^2)
+  p2 <- -2 * cmeanx * csumx
+  p3 <- (1:n) * cmeanx^2
+  (p1 + p2 + p3) / ((1:n) - 1)
 }
 
 #' Cumulative Skewness
@@ -54,10 +62,19 @@ cvar <- function(.x) {
 #'
 
 cskewness <- function(.x) {
-  skewness <- function(.x) {
-    sqrt(length(.x)) * sum((.x - mean(.x))^3) / (sum((.x - mean(.x))^2)^(3 / 2))
-  }
-  sapply(seq_along(.x), function(k, z) skewness(z[1:k]), z = .x)
+  # rescale `y` to avoid detrimental impacts by outliers
+  y <- scale(.x)
+  # cumulative length of y
+  k <- seq_along(y)
+  # cumulative n-th raw moments of y
+  m3 <- cumsum(y^3)
+  m2 <- cumsum(y^2)
+  m1 <- cumsum(y)
+  u <- m1 / k
+  # expand cubic terms and refactor skewness in terms of num/den
+  num <- (m3 - 3 * u * m2 + 3 * u^2 * m1 - k * u^3) / k
+  den <- sqrt((m2 + k * u^2 - 2 * u * m1) / k)^3
+  c(NaN, (num / den)[-1])
 }
 
 #' Cumulative Kurtosis
@@ -86,10 +103,18 @@ cskewness <- function(.x) {
 #'
 
 ckurtosis <- function(.x) {
-  kurtosis <- function(.x) {
-    length(.x) * sum((.x - mean(.x))^4) / (sum((.x - mean(.x))^2)^2)
-  }
-  sapply(seq_along(.x), function(k, z) kurtosis(z[1:k]), z = .x)
+  x <- scale(.x)
+  k <- seq_along(x)
+  # Cumulative nth raw moment
+  m4 <- cumsum(x^4)
+  m3 <- cumsum(x^3)
+  m2 <- cumsum(x^2)
+  m1 <- cumsum(x)
+  u <- m1 / k
+  # Expand quartic terms and refactor kurtosis in terms of num/den
+  num <- (m4 - 4 * u * m3 + 6 * u^2 * m2 - 4 * u^3 * m1 + k * u^4) / k
+  den <- (m2 + k * u^2 - 2 * u * m1) / k
+  c(NaN, (num / den^2)[-1])
 }
 
 #' Cumulative Standard Deviation
@@ -112,13 +137,14 @@ ckurtosis <- function(.x) {
 #' csd(x)
 #'
 #' @return
-#' A numeric vector
+#' A numeric vector. Note: The first entry will always be
+#' NaN.
 #'
 #' @export
 #'
 
 csd <- function(.x) {
-  sapply(seq_along(.x), function(k, z) stats::sd(z[1:k]), z = .x)
+  sqrt(cvar(.x))
 }
 
 #' Cumulative Median
