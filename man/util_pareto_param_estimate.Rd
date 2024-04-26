@@ -56,6 +56,7 @@ Other Parameter Estimation:
 \code{\link{util_binomial_param_estimate}()},
 \code{\link{util_burr_param_estimate}()},
 \code{\link{util_cauchy_param_estimate}()},
+\code{\link{util_chisquare_param_estimate}()},
 \code{\link{util_exponential_param_estimate}()},
 \code{\link{util_gamma_param_estimate}()},
 \code{\link{util_geometric_param_estimate}()},
@@ -72,8 +73,8 @@ Other Parameter Estimation:
 Other Pareto: 
 \code{\link{tidy_generalized_pareto}()},
 \code{\link{tidy_inverse_pareto}()},
-\code{\link{tidy_pareto1}()},
 \code{\link{tidy_pareto}()},
+\code{\link{tidy_pareto1}()},
 \code{\link{util_pareto_stats_tbl}()}
 }
 \author{

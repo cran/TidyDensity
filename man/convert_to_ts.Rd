@@ -58,6 +58,27 @@ result <- convert_to_ts(x)
 head(result)
 
 }
+\seealso{
+Other Utility: 
+\code{\link{check_duplicate_rows}()},
+\code{\link{quantile_normalize}()},
+\code{\link{tidy_mcmc_sampling}()},
+\code{\link{util_beta_aic}()},
+\code{\link{util_binomial_aic}()},
+\code{\link{util_cauchy_aic}()},
+\code{\link{util_chisq_aic}()},
+\code{\link{util_exponential_aic}()},
+\code{\link{util_gamma_aic}()},
+\code{\link{util_geometric_aic}()},
+\code{\link{util_hypergeometric_aic}()},
+\code{\link{util_logistic_aic}()},
+\code{\link{util_lognormal_aic}()},
+\code{\link{util_normal_aic}()},
+\code{\link{util_pareto_aic}()},
+\code{\link{util_poisson_aic}()},
+\code{\link{util_uniform_aic}()},
+\code{\link{util_weibull_aic}()}
+}
 \author{
 Steven P. Sanderson II, MPH
 }
