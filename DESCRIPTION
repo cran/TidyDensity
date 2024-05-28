@@ -1,6 +1,6 @@
 Package: TidyDensity
 Title: Functions for Tidy Analysis and Generation of Random Data
-Version: 1.4.0
+Version: 1.5.0
 Authors@R: c(
     person("Steven","Sanderson", email = "spsanderson@gmail.com", role = c("aut","cre","cph"),
       comment = c(ORCID = "0009-0006-7661-8247")
@@ -24,9 +24,9 @@ Imports: magrittr, rlang (>= 0.4.11), dplyr, ggplot2, plotly, tidyr,
 Suggests: rmarkdown, knitr, EnvStats
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2024-04-26 12:51:39 UTC; steve
+Packaged: 2024-05-28 12:44:47 UTC; steve
 Author: Steven Sanderson [aut, cre, cph]
     (<https://orcid.org/0009-0006-7661-8247>)
 Maintainer: Steven Sanderson <spsanderson@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-04-26 13:20:02 UTC
+Date/Publication: 2024-05-28 13:50:03 UTC

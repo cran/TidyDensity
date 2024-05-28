@@ -1,11 +1,64 @@
+# TidyDensity 1.5.0
+
+## Breaking Changes
+None
+
+## New Features
+1. Fix #468 - Add function `util_negative_binomial_aic()` to calculate the AIC for the negative binomial distribution.
+2. Fix #470 - Add function `util_zero_truncated_negative_binomial_param_estimate()` to
+estimate the parameters of the zero-truncated negative binomial distribution.
+Add function `util_zero_truncated_negative_binomial_aic()` to calculate the AIC for the zero-truncated negative binomial distribution.
+Add function `util_zero_truncated_negative_binomial_stats_tbl()` to create a summary table of the zero-truncated negative binomial distribution.
+3. Fix #471 - Add function `util_zero_truncated_poisson_param_estimate()` to estimate
+the parameters of the zero-truncated Poisson distribution. 
+Add function `util_zero_truncated_poisson_aic()` to calculate the AIC for the zero-truncated Poisson distribution. 
+Add function `util_zero_truncated_poisson_stats_tbl()` to create a summary table of the zero-truncated Poisson distribution.
+4. Fix #472 - Add function `util_f_param_estimate()` and `util_f_aic()` to estimate the parameters and calculate the AIC for the F distribution.
+5. Fix #482 - Add function `util_zero_truncated_geometric_param_estimate()` to estimate the parameters of the zero-truncated geometric distribution.
+Add function `util_zero_truncated_geometric_aic()` to calculate the AIC for the zero-truncated geometric distribution.
+Add function `util_zero_truncated_geometric_stats_tbl()` to create a summary table of the zero-truncated geometric distribution.
+6. Fix #481 - Add function `util_triangular_aic()` to calculate the AIC for the triangular distribution.
+7. Fix #480 - Add function `util_t_param_estimate()` to estimate the parameters of the
+T distribution. 
+Add function `util_t_aic()` to calculate the AIC for the T distribution.
+8. Fix #479 - Add function `util_pareto1_param_estimate()` to estimate the parameters of the Pareto Type I distribution.
+Add function `util_pareto1_aic()` to calculate the AIC for the Pareto Type I distribution.
+Add function `util_pareto1_stats_tbl()` to create a summary table of the Pareto Type I distribution.
+9. Fix #478 - Add function `util_paralogistic_param_estimate()` to estimate the parameters of the paralogistic distribution.
+Add function `util_paralogistic_aic()` to calculate the AIC for the paralogistic distribution.
+Add fnction `util_paralogistic_stats_tbl()` to create a summary table of the paralogistic distribution.
+10. Fix #477 - Add function `util_inverse_weibull_param_estimate()` to estimate the parameters of the Inverse Weibull distribution.
+Add function `util_inverse_weibull_aic()` to calculate the AIC for the Inverse Weibull distribution.
+Add function `util_inverse_weibull_stats_tbl()` to create a summary table of the Inverse Weibull distribution.
+11. Fix #476 - Add function `util_inverse_pareto_param_estimate()` to estimate the parameters of the Inverse Pareto distribution.
+Add function `util_inverse_pareto_aic()` to calculate the AIC for the Inverse Pareto distribution.
+Add Function `util_inverse_pareto_stats_tbl()` to create a summary table of the Inverse Pareto distribution.
+12. Fix #475 - Add function `util_inverse_burr_param_estimate()` to estimate the parameters of the Inverse Gamma distribution.
+Add function `util_inverse_burr_aic()` to calculate the AIC for the Inverse Gamma distribution.
+Add function `util_inverse_burr_stats_tbl()` to create a summary table of the Inverse Gamma distribution.
+13. Fix #474 - Add function `util_generalized_pareto_param_estimate()` to estimate the parameters of the Generalized Pareto distribution.
+Add function `util_generalized_pareto_aic()` to calculate the AIC for the Generalized Pareto distribution.
+Add function `util_generalized_pareto_stats_tbl()` to create a summary table of the Generalized Pareto distribution.
+14. Fix #473 - Add function `util_generalized_beta_param_estimate()` to estimate the parameters of the Generalized Gamma distribution.
+Add function `util_generalized_beta_aic()` to calculate the AIC for the Generalized Gamma distribution.
+Add function `util_generalized_beta_stats_tbl()` to create a summary table of the Generalized Gamma distribution.
+15. Fix #469 - Add function `util_zero_truncated_binomial_stats_tbl()` to create a summary table of the Zero Truncated binomial distribution.
+Add function `util_zero_truncated_binomial_param_estimate()` to estimate the parameters of the Zero Truncated binomial distribution.
+Add function `util_zero_truncated_binomial_aic()` to calculate the AIC for the Zero Truncated binomial distribution.
+
+## Minor Improvements and Fixes
+1. Fix #468 - Update `util_negative_binomial_param_estimate()` to add the use of
+`optim()` for parameter estimation.
+2. Fix #465 - Add names to columns when `.return_tibble = TRUE` for `quantile_normalize()`
+
 # TidyDensity 1.4.0
 
 ## Breaking Changes
 None
 
 ## New Features
-1. Fix #405 - Add function `quantile_normalization()` to normalize data using quantiles.
-2. Fix #409 - Add function `check_duplilcate_rows()` to check for duplicate rows in a data frame.
+1. Fix #405 - Add function `quantile_normalize()` to normalize data using quantiles.
+2. Fix #409 - Add function `check_duplicate_rows()` to check for duplicate rows in a data frame.
 3. Fix #414 - Add function `util_chisquare_param_estimate()` to estimate the parameters of the chi-square distribution.
 4. Fix #417 - Add function `tidy_mcmc_sampling()` to sample from a distribution using MCMC.
 This outputs the function sampled data and a diagnostic plot.

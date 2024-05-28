@@ -47,8 +47,8 @@ as.data.frame(normalized_data$normalized_data) |>
   sapply(function(x) quantile(x, probs = seq(0, 1, 1 / 4)))
 
 quantile_normalize(
-data.frame(sample1 = rnorm(30),
-           sample2 = rnorm(30)),
+data.frame(rnorm(30),
+           rnorm(30)),
            .return_tibble = TRUE)
 
 }
@@ -68,16 +68,31 @@ Other Utility:
 \code{\link{util_cauchy_aic}()},
 \code{\link{util_chisq_aic}()},
 \code{\link{util_exponential_aic}()},
+\code{\link{util_f_aic}()},
 \code{\link{util_gamma_aic}()},
+\code{\link{util_generalized_beta_aic}()},
+\code{\link{util_generalized_pareto_aic}()},
 \code{\link{util_geometric_aic}()},
 \code{\link{util_hypergeometric_aic}()},
+\code{\link{util_inverse_burr_aic}()},
+\code{\link{util_inverse_pareto_aic}()},
+\code{\link{util_inverse_weibull_aic}()},
 \code{\link{util_logistic_aic}()},
 \code{\link{util_lognormal_aic}()},
+\code{\link{util_negative_binomial_aic}()},
 \code{\link{util_normal_aic}()},
+\code{\link{util_paralogistic_aic}()},
+\code{\link{util_pareto1_aic}()},
 \code{\link{util_pareto_aic}()},
 \code{\link{util_poisson_aic}()},
+\code{\link{util_t_aic}()},
+\code{\link{util_triangular_aic}()},
 \code{\link{util_uniform_aic}()},
-\code{\link{util_weibull_aic}()}
+\code{\link{util_weibull_aic}()},
+\code{\link{util_zero_truncated_binomial_aic}()},
+\code{\link{util_zero_truncated_geometric_aic}()},
+\code{\link{util_zero_truncated_negative_binomial_aic}()},
+\code{\link{util_zero_truncated_poisson_aic}()}
 }
 \author{
 Steven P. Sanderson II, MPH
