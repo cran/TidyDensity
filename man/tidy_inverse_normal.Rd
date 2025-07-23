@@ -51,7 +51,7 @@ The columns that are output are:
 }
 \details{
 This function uses the underlying \code{actuar::rinvgauss()}. For
-more information please see \code{\link[=rinvgauss]{rinvgauss()}}
+more information please see \code{\link[actuar:InverseGaussian]{actuar::rinvgauss()}}
 }
 \examples{
 tidy_inverse_normal()
@@ -68,7 +68,6 @@ Other Continuous Distribution:
 \code{\link{tidy_gamma}()},
 \code{\link{tidy_generalized_beta}()},
 \code{\link{tidy_generalized_pareto}()},
-\code{\link{tidy_geometric}()},
 \code{\link{tidy_inverse_burr}()},
 \code{\link{tidy_inverse_exponential}()},
 \code{\link{tidy_inverse_gamma}()},
