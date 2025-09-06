@@ -9,7 +9,7 @@
 ![](https://cranlogs.r-pkg.org/badges/TidyDensity)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/TidyDensity)
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html##stable)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![PRs
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 <!-- badges: end -->
@@ -50,18 +50,18 @@ library(ggplot2)
 
 tidy_normal()
 #> # A tibble: 50 × 7
-#>    sim_number     x        y    dx       dy      p        q
-#>    <fct>      <int>    <dbl> <dbl>    <dbl>  <dbl>    <dbl>
-#>  1 1              1  0.209   -3.37 0.000254 0.583   0.209  
-#>  2 1              2  1.55    -3.22 0.000693 0.940   1.55   
-#>  3 1              3 -1.23    -3.08 0.00171  0.110  -1.23   
-#>  4 1              4 -1.04    -2.93 0.00385  0.150  -1.04   
-#>  5 1              5 -0.542   -2.78 0.00790  0.294  -0.542  
-#>  6 1              6  1.31    -2.64 0.0149   0.905   1.31   
-#>  7 1              7  1.05    -2.49 0.0258   0.853   1.05   
-#>  8 1              8  0.00903 -2.35 0.0417   0.504   0.00903
-#>  9 1              9 -1.40    -2.20 0.0628   0.0809 -1.40   
-#> 10 1             10  1.99    -2.06 0.0889   0.977   1.99   
+#>    sim_number     x       y    dx       dy      p       q
+#>    <fct>      <int>   <dbl> <dbl>    <dbl>  <dbl>   <dbl>
+#>  1 1              1 -1.87   -3.51 0.000235 0.0307 -1.87  
+#>  2 1              2 -0.839  -3.37 0.000617 0.201  -0.839 
+#>  3 1              3  0.580  -3.22 0.00147  0.719   0.580 
+#>  4 1              4 -0.0620 -3.07 0.00322  0.475  -0.0620
+#>  5 1              5  0.360  -2.92 0.00644  0.641   0.360 
+#>  6 1              6 -0.165  -2.78 0.0118   0.434  -0.165 
+#>  7 1              7 -1.65   -2.63 0.0201   0.0494 -1.65  
+#>  8 1              8 -0.277  -2.48 0.0315   0.391  -0.277 
+#>  9 1              9  1.77   -2.34 0.0461   0.961   1.77  
+#> 10 1             10  0.604  -2.19 0.0628   0.727   0.604 
 #> # ℹ 40 more rows
 ```
 

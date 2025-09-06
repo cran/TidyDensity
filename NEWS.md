@@ -1,3 +1,17 @@
+# TidyDensity 1.5.2
+
+## Breaking Changes
+1. Fix #521 - Fundamentally redesign of `quantile_normalize()` to use a more efficient
+algorithm. This has resulted in a breaking change as the output is now slightly
+different. The new algorithm is also faster and more memory efficient.
+
+## New Features
+1. Fix #510 - Add parameter to `tidy_mixture_density()` to allow for different
+types of combinations, add, subtract, stack, multiply and divide.
+
+## Minor Fixes and Improvements
+None
+
 # TidyDensity 1.5.1
 
 ## Breaking Changes
